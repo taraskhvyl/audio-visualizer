@@ -251,7 +251,7 @@ function draw() {
         push();
         translate(pl.pos[0], pl.pos[1], pl.pos[2]);
         fill(pl.col[0] * 255, pl.col[1] * 255, pl.col[2] * 255);
-        sphere(4);
+        sphere(8*scalebass);
         pop();
     }
     pop();
@@ -271,7 +271,7 @@ function draw() {
     setMaterial(phongshader, matWhite);
     rand.seed = 0;
     var count = 80;
-    var trange = 200;
+    var trange = 160;
     for (var i = 0; i < count; i++) {
 
         var dx = rand() * 25 + 8;
@@ -282,7 +282,8 @@ function draw() {
 
         push();
         translate(tx, ty, tz);
-        // rotateX(map(mouseX, 0, width, 0, PI));
+        rotateX(map(mouseX, 0, width, 0, PI));
+        rotateY(map(mouseY, 0, width, 0, PI));
         box(dx*scalebass*1.2);
         pop();
     }
